@@ -15,8 +15,8 @@ import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets
 import { AddEditPageComponent } from './pages/add-edit-page/add-edit-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HeadbarComponent } from './components/headbar/headbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -33,14 +33,10 @@ import { FooterComponent } from './components/footer/footer.component';
     AddEditPageComponent,
     AdminPageComponent,
     NavbarComponent,
-    HeadbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, RouterModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
