@@ -17,6 +17,9 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -34,8 +37,9 @@ import { RouterModule } from '@angular/router';
     AdminPageComponent,
     NavbarComponent,
     FooterComponent,
+    PromoCodeDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule, BrowserAnimationsModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })

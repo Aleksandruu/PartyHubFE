@@ -12,6 +12,7 @@ import { ProfilPageComponent } from './pages/profil-page/profil-page.component';
 import { PromoCodePageComponent } from './pages/promo-code-page/promo-code-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets-page.component';
+import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { component: PromoCodePageComponent, path: PATHS.PROMOCODE },
   { component: RegisterPageComponent, path: PATHS.REGISTER },
   { component: ScanTicketsPageComponent, path: PATHS.SCANTICKETS },
+  { component: PromoCodeDetailsComponent, path: PATHS.PROMOCODEDETAILS },
 ];
 
 @NgModule({
