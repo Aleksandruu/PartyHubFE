@@ -1,17 +1,22 @@
-
 .navbar {
   width: 100vw;
   height: 95px;
   position: fixed;
   top: 0;
+  left: 0;
   background-color: black;
   color: white;
   z-index: 10;
-  background-image: url('Asset 1Logo 1.svg');
-  background-repeat: no-repeat;
-  background-size: 108px, 21px;
-  background-position-x: 161px;
-  background-position-y: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 2rem;
+  width: 7rem;
+  position: relative;
+  top: 1.5rem;
 }
 
 .navbar-btn {
@@ -41,16 +46,16 @@
   z-index: 0;
   max-height: 95px;
   padding: 0 1rem;
-  padding-bottom: .5rem;
-  transition: max-height .3s ease-out;
+  /* padding-bottom: 0.5rem; */
+  transition: max-height 0.3s ease-out;
 }
-.menu-filler{
-  height:95px;
+.menu-filler {
+  height: 95px;
 }
 
-.menu-extended{
+.menu-extended {
   max-height: 300px;
-  transition: max-height .3s ease-in;
+  transition: max-height 0.3s ease-in;
 }
 
 .menu a {
@@ -65,7 +70,7 @@
 .menu a:hover {
   color: #acacac;
 }
-.navbar-filler{
-  width:100vw;
-  height:95px;
+.navbar-filler {
+  width: 100vw;
+  height: 95px;
 }
