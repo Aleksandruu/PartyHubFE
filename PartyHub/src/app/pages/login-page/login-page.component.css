@@ -1,0 +1,35 @@
+.Login {
+    position: fixed;
+    width:285px;
+    height:50px;
+    bottom: 15%; /* ajustează poziția verticală a butonului */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .account{
+    position:absolute;
+    bottom: 12%;
+    left: 96.5px;
+    color:white;
+    font-size: 20px;
+  }
+  .Sign-up{
+    position:fixed;
+    bottom:11%;
+    left:170px;
+    background-color: transparent;
+    color:#FF0000;
+    font-size:20px;
+    font-weight:bolder;
+    border:72px 24px;
+    border-color: transparent;
+  }
