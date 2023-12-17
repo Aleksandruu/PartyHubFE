@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PartyHub:build:production"
+              "buildTarget": "PartyHub:build:production"
             },
             "development": {
-              "browserTarget": "PartyHub:build:development"
+              "buildTarget": "PartyHub:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PartyHub:build"
+            "buildTarget": "PartyHub:build"
           }
         },
         "test": {
