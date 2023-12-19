@@ -24,6 +24,9 @@ export class LoginPageComponent implements OnInit {
   navigateToRegisterPage() {
     this.router.navigate([PATHS.REGISTER]);
   }
+  navigateToResetPassword() {
+    this.router.navigate([PATHS.FORGOTPASSWORD]);
+  }
 
   login() {
     let login: Login = {

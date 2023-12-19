@@ -13,6 +13,7 @@ import { PromoCodePageComponent } from './pages/promo-code-page/promo-code-page.
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets-page.component';
 import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
+import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -29,10 +30,11 @@ const routes: Routes = [
   { component: RegisterPageComponent, path: PATHS.REGISTER },
   { component: ScanTicketsPageComponent, path: PATHS.SCANTICKETS },
   { component: PromoCodeDetailsComponent, path: PATHS.PROMOCODEDETAILS },
+  { component: ForgotPasswordPageComponent, path: PATHS.FORGOTPASSWORD }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
