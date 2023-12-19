@@ -1,1 +1,13 @@
-<p>navbar works!</p>
+<div class="navbar">
+  <button class="navbar-btn" (click)="toggleNavbar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="../../../assets/logo/logo.svg" class="logo" />
+</div>
+<div class="menu" [ngClass]="{ 'menu-extended': navbarExtend }">
+  <div class="menu-filler"></div>
+  <a (click)="closeNavbar()">Login</a>
+  <a (click)="closeNavbar()">Register</a>
+  <a (click)="closeNavbar()">Party Code</a>
+</div>
+<div class="navbar-filler"></div>

@@ -9,6 +9,7 @@ export const PATHS = {
   LOGIN: 'login',
   PROFIL: 'profil',
   PROMOCODE: 'promo-code',
+  PROMOCODEDETAILS: 'promo-code-details',
   REGISTER: 'register',
   SCANTICKETS: 'scan-tickets',
 };
