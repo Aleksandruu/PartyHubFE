@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,8 +40,8 @@ import { MatIconModule } from '@angular/material/icon';
     FooterComponent,
     PromoCodeDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule, BrowserAnimationsModule, MatIconModule],
+  imports: [BrowserModule, AppRoutingModule, RouterModule, BrowserAnimationsModule, MatIconModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
