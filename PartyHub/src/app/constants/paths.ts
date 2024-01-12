@@ -8,9 +8,9 @@ export const PATHS = {
   EVENT: 'event',
   LOGIN: 'login',
   PROFIL: 'profil',
-  PROMOCODE: 'promo-code-page',
+  PROMOCODE: 'promo-code',
   PROMOCODEDETAILS: 'promo-code-details',
-  REGISTER: 'register-page',
+  REGISTER: 'register',
   SCANTICKETS: 'scan-tickets',
-  FORGOTPASSWORD: 'forgot-password-page'
+  FORGOTPASSWORD: 'forgot-password',
 };

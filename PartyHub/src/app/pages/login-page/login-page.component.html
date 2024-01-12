@@ -1,21 +1,26 @@
-<form [formGroup]="loginForm">
+<form class="container" [formGroup]="loginForm">
   <img src="../../../assets/devil.svg" />
-  <h1>Sign in</h1>
-  <div>
-    <p class="inputs">Email</p>
-    <input type="email" formControlName="email" />
+  <h1 class="title">Sign in</h1>
+  <div class="input-label">
+    <label for="email">Email</label>
+    <input class="text-input" id="email" type="email" formControlName="email" />
+  </div>
+  <div class="input-label">
+    <label for="password">Password</label>
+    <input
+      class="text-input"
+      id="password"
+      type="password"
+      formControlName="password"
+    />
   </div>
   <div>
-    <p class="inputs">Password</p>
-    <input type="password" formControlName="password" />
+    <p>Forgot your password?</p>
+    <a class="link" (click)="navigateToResetPassword()">Reset it now</a>
   </div>
+  <button class="btn" (click)="login()">Login</button>
   <div>
-    <p class="password">Forgot your password?</p>
-    <a href="" class="link" (click)="(navigateToResetPassword)">Reset it now</a>
-  </div>
-  <button class="Login" (click)="login()">Login</button>
-  <div>
-    <p class="account">You don't have an account?</p>
-    <a href="" class="link" (click)="navigateToRegisterPage()">Sign up</a>
+    <p>You don't have an account?</p>
+    <a class="link" (click)="navigateToRegisterPage()">Sign up</a>
   </div>
 </form>

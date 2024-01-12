@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventsPageComponent } from './pages/events-page/events-page.component';
@@ -21,6 +20,7 @@ import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,8 +40,16 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     PromoCodeDetailsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule, BrowserAnimationsModule, MatIconModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
