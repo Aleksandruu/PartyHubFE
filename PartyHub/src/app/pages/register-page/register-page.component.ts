@@ -42,7 +42,7 @@ export class RegisterPageComponent implements OnInit {
         age: this.registerForm.value.age,
         password: this.registerForm.value.password,
       };
-      this.authentication.register(register).subscribe((x) => console.log(x));
+      this.authentication.register(register).subscribe();
     }
   }
 }
