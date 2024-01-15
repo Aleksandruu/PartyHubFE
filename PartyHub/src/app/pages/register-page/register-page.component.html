@@ -24,6 +24,7 @@
       id="password"
       type="password"
       formControlName="password"
+      [ngClass]="{ 'wrong-input-value': passwordMissmatch }"
     />
   </div>
   <div class="input-label">
@@ -33,6 +34,7 @@
       id="confirmPassword"
       type="password"
       formControlName="confirmPassword"
+      [ngClass]="{ 'wrong-input-value': passwordMissmatch }"
     />
   </div>
   <button class="btn" (click)="register()">Register</button>

@@ -3,7 +3,13 @@
   <h1 class="title">Sign in</h1>
   <div class="input-label">
     <label for="email">Email</label>
-    <input class="text-input" id="email" type="email" formControlName="email" />
+    <input
+      class="text-input"
+      id="email"
+      type="email"
+      formControlName="email"
+      [ngClass]="{ 'wrong-input-value': wrongEmail }"
+    />
   </div>
   <div class="input-label">
     <label for="password">Password</label>
@@ -12,6 +18,7 @@
       id="password"
       type="password"
       formControlName="password"
+      [ngClass]="{ 'wrong-input-value': wrongPassword }"
     />
   </div>
   <div>

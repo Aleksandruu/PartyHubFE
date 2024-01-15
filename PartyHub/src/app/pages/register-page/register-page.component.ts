@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class RegisterPageComponent implements OnInit {
   registerForm!: FormGroup;
+  passwordMissmatch = false;
 
   constructor(
     private router: Router,
@@ -43,6 +44,8 @@ export class RegisterPageComponent implements OnInit {
         password: this.registerForm.value.password,
       };
       this.authentication.register(register).subscribe();
+    } else {
+      this.passwordMissmatch = true;
     }
   }
 }

@@ -29,6 +29,10 @@ export class AuthenticationService {
     return this.http.post<Token>(enviroment.apiURL + '/auth/login', user).pipe(
       tap((token: Token) => {
         localStorage.setItem(LOCALSTORAGEKEYS.TOKEN, JSON.stringify(token));
+        localStorage.setItem(
+          LOCALSTORAGEKEYS.EMAIL,
+          this.getDecodedToken(token).sub
+        );
         this.isLoggedIn.next(true);
         this.setSubjects();
       })
@@ -76,5 +80,6 @@ export class AuthenticationService {
     this.isLoggedIn.next(false);
     this.setRolesFalse();
     localStorage.removeItem(LOCALSTORAGEKEYS.TOKEN);
+    localStorage.removeItem(LOCALSTORAGEKEYS.EMAIL);
   }
 }
