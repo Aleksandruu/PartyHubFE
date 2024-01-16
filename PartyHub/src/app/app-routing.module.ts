@@ -18,6 +18,7 @@ import { adminGuard } from './guards/admin.guard';
 import { logoutGuard } from './guards/logout.guard';
 import { scannerGuard } from './guards/scanner.guard';
 import { userGuard } from './guards/user.guard';
+import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -79,10 +80,15 @@ const routes: Routes = [
     path: PATHS.FORGOTPASSWORD,
     canActivate: [logoutGuard],
   },
+  {
+    component: EnterEmailPageComponent,
+    path: PATHS.EMAILFORRESET,
+    canActivate: [logoutGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

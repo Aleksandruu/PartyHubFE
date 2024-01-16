@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot
     NavbarComponent,
     FooterComponent,
     PromoCodeDetailsComponent,
+    EnterEmailPageComponent
   ],
   imports: [
     BrowserModule,

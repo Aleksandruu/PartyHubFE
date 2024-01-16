@@ -13,4 +13,5 @@ export const PATHS = {
   REGISTER: 'register',
   SCANTICKETS: 'scan-tickets',
   FORGOTPASSWORD: 'forgot-password',
+  EMAILFORRESET: 'enter-email'
 };
