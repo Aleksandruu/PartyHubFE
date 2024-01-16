@@ -29,6 +29,10 @@ export class AuthenticationService {
     return this.http.post<Token>(enviroment.apiURL + '/auth/login', user).pipe(
       tap((token: Token) => {
         localStorage.setItem(LOCALSTORAGEKEYS.TOKEN, JSON.stringify(token));
+        localStorage.setItem(
+          LOCALSTORAGEKEYS.EMAIL,
+          this.getDecodedToken(token).sub
+        );
         this.isLoggedIn.next(true);
         this.setSubjects();
       })
@@ -44,24 +48,27 @@ export class AuthenticationService {
     let token: Token = JSON.parse(
       localStorage.getItem(LOCALSTORAGEKEYS.TOKEN)!
     );
-    let decodedToken: DecodedToken = this.getDecodedToken(token);
 
-    const expirationDate = new Date(decodedToken.exp * 1000);
-    const currentDate = new Date();
+    if (token) {
+      let decodedToken: DecodedToken = this.getDecodedToken(token);
 
-    if (expirationDate < currentDate) {
-      this.logout();
-    } else {
-      this.isLoggedIn.next(true);
-      this.setRolesFalse();
-      if (decodedToken.roles[0] == ROLES.ADMIN) {
-        this.isAdmin.next(true);
-      }
-      if (decodedToken.roles[0] == ROLES.USER) {
-        this.isUser.next(true);
-      }
-      if (decodedToken.roles[0] == ROLES.SCANNER) {
-        this.isScanner.next(true);
+      const expirationDate = new Date(decodedToken.exp * 1000);
+      const currentDate = new Date();
+
+      if (expirationDate < currentDate) {
+        this.logout();
+      } else {
+        this.isLoggedIn.next(true);
+        this.setRolesFalse();
+        if (decodedToken.roles[0] == ROLES.ADMIN) {
+          this.isAdmin.next(true);
+        }
+        if (decodedToken.roles[0] == ROLES.USER) {
+          this.isUser.next(true);
+        }
+        if (decodedToken.roles[0] == ROLES.SCANNER) {
+          this.isScanner.next(true);
+        }
       }
     }
   }
@@ -76,5 +83,6 @@ export class AuthenticationService {
     this.isLoggedIn.next(false);
     this.setRolesFalse();
     localStorage.removeItem(LOCALSTORAGEKEYS.TOKEN);
+    localStorage.removeItem(LOCALSTORAGEKEYS.EMAIL);
   }
 }

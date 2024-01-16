@@ -12,6 +12,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+  wrongEmail = false;
+  wrongPassword = false;
 
   constructor(
     private router: Router,
@@ -23,6 +25,10 @@ export class LoginPageComponent implements OnInit {
       email: new FormControl(''),
       password: new FormControl(''),
     });
+  }
+
+  navigateToEventsPage() {
+    this.router.navigate([PATHS.EVENTS]);
   }
 
   navigateToRegisterPage() {
@@ -38,6 +44,17 @@ export class LoginPageComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.authentication.login(login).subscribe((x) => console.log(x));
+
+    this.authentication.login(login).subscribe(
+      (res) => {
+        this.navigateToEventsPage();
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.wrongPassword = true;
+          this.wrongEmail = true;
+        }
+      }
+    );
   }
 }

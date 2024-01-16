@@ -4,5 +4,5 @@ import { inject } from '@angular/core';
 
 export const logoutGuard: CanActivateFn = (route, state) => {
   const authentication = inject(AuthenticationService);
-  return !authentication.isLoggedIn;
+  return !authentication.isLoggedIn.getValue();
 };
