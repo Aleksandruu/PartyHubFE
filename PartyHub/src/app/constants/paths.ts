@@ -7,7 +7,7 @@ export const PATHS = {
   EDITPROFIL: 'edit-profil',
   EVENT: 'event',
   LOGIN: 'login',
-  PROFIL: 'profil',
+  PROFILE: 'profile',
   PROMOCODE: 'promo-code',
   PROMOCODEDETAILS: 'promo-code-details',
   REGISTER: 'register',

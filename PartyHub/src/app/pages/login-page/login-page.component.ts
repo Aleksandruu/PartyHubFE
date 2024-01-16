@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PATHS } from 'src/app/constants/paths';
 import { Login } from 'src/app/types/login.type';
@@ -12,6 +12,8 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+  wrongEmail = false;
+  wrongPassword = false;
 
   constructor(
     private router: Router,
@@ -21,8 +23,15 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl(''),
-      password: new FormControl(''),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
+  }
+
+  navigateToEventsPage() {
+    this.router.navigate([PATHS.EVENTS]);
   }
 
   navigateToRegisterPage() {
@@ -38,6 +47,17 @@ export class LoginPageComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.authentication.login(login).subscribe((x) => console.log(x));
+
+    this.authentication.login(login).subscribe(
+      (res) => {
+        this.navigateToEventsPage();
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.wrongPassword = true;
+          this.wrongEmail = true;
+        }
+      }
+    );
   }
 }

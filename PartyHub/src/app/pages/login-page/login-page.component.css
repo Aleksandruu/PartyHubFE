@@ -7,3 +7,7 @@ p {
 a {
   margin-bottom: 10px;
 }
+
+.wrong-input-value {
+  border-color: red;
+}

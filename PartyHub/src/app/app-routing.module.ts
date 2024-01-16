@@ -14,27 +14,75 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets-page.component';
 import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
+import { adminGuard } from './guards/admin.guard';
+import { logoutGuard } from './guards/logout.guard';
+import { scannerGuard } from './guards/scanner.guard';
+import { userGuard } from './guards/user.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
   { component: EventsPageComponent, path: PATHS.EVENTS },
-  { component: AddEditPageComponent, path: PATHS.ADDEVENT },
-  { component: AddEditPageComponent, path: PATHS.EDITEVENT + '/:id' },
-  { component: AdminPageComponent, path: PATHS.ADMIN },
+  {
+    component: AddEditPageComponent,
+    path: PATHS.ADDEVENT,
+    canActivate: [adminGuard],
+  },
+  {
+    component: AddEditPageComponent,
+    path: PATHS.EDITEVENT + '/:id',
+    canActivate: [adminGuard],
+  },
+  {
+    component: AdminPageComponent,
+    path: PATHS.ADMIN,
+    canActivate: [adminGuard],
+  },
   { component: BuyTicketPageComponent, path: PATHS.BUYTICKET },
-  { component: EditProfilPageComponent, path: PATHS.EDITPROFIL + '/:id' },
+  {
+    component: EditProfilPageComponent,
+    path: PATHS.EDITPROFIL + '/:id',
+    canActivate: [userGuard],
+  },
   { component: EventPageComponent, path: PATHS.EVENT + '/:id' },
-  { component: LoginPageComponent, path: PATHS.LOGIN },
-  { component: ProfilPageComponent, path: PATHS.PROFIL },
-  { component: PromoCodePageComponent, path: PATHS.PROMOCODE },
-  { component: RegisterPageComponent, path: PATHS.REGISTER },
-  { component: ScanTicketsPageComponent, path: PATHS.SCANTICKETS },
-  { component: PromoCodeDetailsComponent, path: PATHS.PROMOCODEDETAILS },
-  { component: ForgotPasswordPageComponent, path: PATHS.FORGOTPASSWORD }
+  {
+    component: LoginPageComponent,
+    path: PATHS.LOGIN,
+    canActivate: [logoutGuard],
+  },
+  {
+    component: ProfilPageComponent,
+    path: PATHS.PROFILE,
+    canActivate: [userGuard],
+  },
+  {
+    component: PromoCodePageComponent,
+    path: PATHS.PROMOCODE,
+    canActivate: [userGuard],
+  },
+  {
+    component: RegisterPageComponent,
+    path: PATHS.REGISTER,
+    canActivate: [logoutGuard],
+  },
+  {
+    component: ScanTicketsPageComponent,
+    path: PATHS.SCANTICKETS,
+    canActivate: [scannerGuard],
+  },
+  {
+    component: PromoCodeDetailsComponent,
+    path: PATHS.PROMOCODEDETAILS,
+    canActivate: [userGuard],
+  },
+  {
+    component: ForgotPasswordPageComponent,
+    path: PATHS.FORGOTPASSWORD,
+    canActivate: [logoutGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -46,7 +46,6 @@
   z-index: 0;
   max-height: 95px;
   padding: 0 1rem;
-  /* padding-bottom: 0.5rem; */
   transition: max-height 0.3s ease-out;
 }
 .menu-filler {

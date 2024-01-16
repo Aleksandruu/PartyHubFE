@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PATHS } from 'src/app/constants/paths';
 import { Register } from 'src/app/types/register.type';
@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class RegisterPageComponent implements OnInit {
   registerForm!: FormGroup;
+  passwordMissmatch = false;
 
   constructor(
     private router: Router,
@@ -20,11 +21,20 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      email: new FormControl(''),
-      fullName: new FormControl(''),
-      age: new FormControl(0),
-      password: new FormControl(''),
-      confirmPassword: new FormControl(''),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      fullName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      age: new FormControl(0, [Validators.required, Validators.min(18)]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      confirmPassword: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
     });
   }
 
@@ -42,7 +52,9 @@ export class RegisterPageComponent implements OnInit {
         age: this.registerForm.value.age,
         password: this.registerForm.value.password,
       };
-      this.authentication.register(register).subscribe((x) => console.log(x));
+      this.authentication.register(register).subscribe();
+    } else {
+      this.passwordMissmatch = true;
     }
   }
 }

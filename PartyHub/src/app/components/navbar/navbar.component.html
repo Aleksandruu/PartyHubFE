@@ -6,8 +6,10 @@
 </div>
 <div class="menu" [ngClass]="{ 'menu-extended': navbarExtend }">
   <div class="menu-filler"></div>
-  <a (click)="navigateToLogin()">Login</a>
-  <a (click)="navigateToRegister()">Register</a>
+  <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
+  <ng-template #notLoggedInContent> </ng-template>
+  <a *ngIf="!isLoggedIn" (click)="navigateToLogin()">Login</a>
+  <a *ngIf="!isLoggedIn" (click)="navigateToRegister()">Register</a>
   <a (click)="navigateToPartyCode()">Party Code</a>
 </div>
 <div class="navbar-filler"></div>
