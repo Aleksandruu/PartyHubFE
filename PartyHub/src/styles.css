@@ -111,3 +111,12 @@ label {
 .wrong-input-value {
   border-color: #ff0000;
 }
+
+.input-not-valid-text {
+  color: red;
+  width: 18.75rem;
+  text-align: center;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+}
