@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { DiscountBarComponent } from './components/discount-bar/discount-bar.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     FooterComponent,
     PromoCodeDetailsComponent,
+    DiscountBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
