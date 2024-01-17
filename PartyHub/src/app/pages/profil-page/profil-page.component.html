@@ -1,7 +1,10 @@
 <div class="container" *ngIf="profile | async as profile">
   <img src="../../../assets/devil.svg" />
   <h1 class="title">{{ profile.fullName }}</h1>
-  <mat-icon class="edit" (click)="navigateToEditProfile()">edit</mat-icon>
+  <div class="icons">
+    <mat-icon class="edit" (click)="navigateToEditProfile()">edit</mat-icon>
+    <mat-icon class="edit">delete</mat-icon>
+  </div>
   <div class="data-container">
     <div class="profile-data">
       <p>Email:</p>
