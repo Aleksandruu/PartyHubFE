@@ -24,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { CommonModule } from '@angular/common';
 import { DiscountBarComponent } from './components/discount-bar/discount-bar.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DiscountBarComponent } from './components/discount-bar/discount-bar.com
     HttpClientModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

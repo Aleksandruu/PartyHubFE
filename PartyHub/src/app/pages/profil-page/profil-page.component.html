@@ -1,4 +1,4 @@
-<form class="container">
+<div class="container" *ngIf="profile | async as profile">
   <img src="../../../assets/devil.svg" />
   <h1 class="title">{{ profile.name }}</h1>
   <mat-icon class="edit">edit</mat-icon>
@@ -14,6 +14,7 @@
     <div class="profile-data">
       <p>Party Code:</p>
       <p class="party-data">{{ profile.promoCode }}</p>
+      <a class="link" *ngIf="!profile.promoCode">Create now!</a>
     </div>
   </div>
   <div class="discount-container">
@@ -28,4 +29,4 @@
       next ticket: {{ profile.discountForNextTicket }}%
     </p>
   </div>
-</form>
+</div>

@@ -13,6 +13,7 @@ import { BehaviorSubject, map } from 'rxjs';
 export class NavbarComponent {
   navbarExtend = false;
   isLoggedIn = false;
+  isUser = false;
 
   constructor(
     private router: Router,
@@ -21,6 +22,7 @@ export class NavbarComponent {
     this.authentication.isLoggedIn.subscribe(
       (value) => (this.isLoggedIn = value)
     );
+    this.authentication.isUser.subscribe((value) => (this.isUser = value));
   }
 
   logout(): void {
@@ -32,12 +34,19 @@ export class NavbarComponent {
     this.router.navigate([PATHS.LOGIN]);
     this.closeNavbar();
   }
+
   navigateToRegister(): void {
     this.router.navigate([PATHS.REGISTER]);
     this.closeNavbar();
   }
+
   navigateToPartyCode(): void {
     this.router.navigate([PATHS.PROMOCODE]);
+    this.closeNavbar();
+  }
+
+  navigateToProfile(): void {
+    this.router.navigate([PATHS.PROFILE]);
     this.closeNavbar();
   }
 
