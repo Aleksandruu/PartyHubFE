@@ -45,3 +45,9 @@
   font-size: 18px;
   font-weight: 500;
 }
+.icons {
+  display: flex;
+  flex-direction: row;
+  width: 8rem;
+  justify-content: space-between;
+}
