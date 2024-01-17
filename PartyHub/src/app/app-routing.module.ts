@@ -40,7 +40,7 @@ const routes: Routes = [
   { component: BuyTicketPageComponent, path: PATHS.BUYTICKET },
   {
     component: EditProfilPageComponent,
-    path: PATHS.EDITPROFIL + '/:id',
+    path: PATHS.EDITPROFILE,
     canActivate: [userGuard],
   },
   { component: EventPageComponent, path: PATHS.EVENT + '/:id' },
