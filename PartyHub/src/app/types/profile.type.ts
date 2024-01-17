@@ -1,5 +1,5 @@
 export interface Profile {
-  name: string;
+  fullName: string;
   email: string;
   age: number;
   promoCode: string;
