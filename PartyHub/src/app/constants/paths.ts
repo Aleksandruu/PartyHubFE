@@ -4,7 +4,7 @@ export const PATHS = {
   EDITEVENT: 'edit-event',
   ADMIN: 'admin',
   BUYTICKET: 'buy-ticket',
-  EDITPROFIL: 'edit-profil',
+  EDITPROFILE: 'edit-profile',
   EVENT: 'event',
   LOGIN: 'login',
   PROFILE: 'profile',
