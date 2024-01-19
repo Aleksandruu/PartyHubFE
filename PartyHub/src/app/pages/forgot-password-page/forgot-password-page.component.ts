@@ -10,6 +10,7 @@ import { PATHS } from 'src/app/constants/paths';
 })
 export class ForgotPasswordPageComponent implements OnInit {
   forgotPasswordForm!: FormGroup;
+  wrongPassword = false;
 
   constructor(
     private router: Router
@@ -17,16 +18,23 @@ export class ForgotPasswordPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.forgotPasswordForm = new FormGroup({
-      email: new FormControl(''),
       password: new FormControl(''),
+      passwordConfirm: new FormControl(''),
     });
   }
 
-  navigateToRegisterPage() {
-    this.router.navigate([PATHS.REGISTER]);
-  }
 
-  navigateToResetPassword() {
-    this.router.navigate([PATHS.FORGOTPASSWORD]);
+  saveNewPassword() {
+    let password: string = this.forgotPasswordForm.value.password;
+    let passwordConfirm: string = this.forgotPasswordForm.value.passwordConfirm;
+
+    if (password == passwordConfirm) {
+      let newPassword: string = password;
+      //trimitem parola pe backend
+      this.router.navigate([PATHS.LOGIN]);
+    }
+    else {
+      this.wrongPassword = true;
+    }
   }
 }

@@ -18,7 +18,7 @@ export class LoginPageComponent implements OnInit {
   constructor(
     private router: Router,
     private authentication: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -39,7 +39,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   navigateToResetPassword() {
-    this.router.navigate([PATHS.FORGOTPASSWORD]);
+    this.router.navigate([PATHS.EMAILFORRESET]);
   }
 
   login() {

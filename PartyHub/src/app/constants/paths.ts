@@ -14,4 +14,5 @@ export const PATHS = {
   VERIFYACCOUNT: 'verify',
   SCANTICKETS: 'scan-tickets',
   FORGOTPASSWORD: 'forgot-password',
+  EMAILFORRESET: 'enter-email'
 };

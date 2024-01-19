@@ -1,0 +1,14 @@
+<form class="container" [formGroup]="emailForm">
+  <img src="../../../assets/devil.svg" />
+  <h1 class="title">Reset password</h1>
+  <div class="input-label">
+    <label for="password">Enter mail</label>
+    <input
+      class="text-input"
+      id="email"
+      type="email"
+      formControlName="password"
+    />
+  </div>
+  <button class="btn" (click)="sendEmail()">Send</button>
+</form>
