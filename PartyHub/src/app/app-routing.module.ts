@@ -19,6 +19,8 @@ import { logoutGuard } from './guards/logout.guard';
 import { scannerGuard } from './guards/scanner.guard';
 import { userGuard } from './guards/user.guard';
 import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
+import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -41,7 +43,7 @@ const routes: Routes = [
   { component: BuyTicketPageComponent, path: PATHS.BUYTICKET },
   {
     component: EditProfilPageComponent,
-    path: PATHS.EDITPROFIL + '/:id',
+    path: PATHS.EDITPROFILE,
     canActivate: [userGuard],
   },
   { component: EventPageComponent, path: PATHS.EVENT + '/:id' },
@@ -63,6 +65,11 @@ const routes: Routes = [
   {
     component: RegisterPageComponent,
     path: PATHS.REGISTER,
+    canActivate: [logoutGuard],
+  },
+  {
+    component: VerifyAccountPageComponent,
+    path: PATHS.VERIFYACCOUNT + '/:token',
     canActivate: [logoutGuard],
   },
   {

@@ -23,6 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
+import { CommonModule } from '@angular/common';
+import { DiscountBarComponent } from './components/discount-bar/discount-bar.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +48,8 @@ import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-pa
     FooterComponent,
     PromoCodeDetailsComponent,
     EnterEmailPageComponent
+    DiscountBarComponent,
+    VerifyAccountPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,8 +59,11 @@ import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-pa
     MatIconModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
