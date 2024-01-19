@@ -18,6 +18,7 @@ import { adminGuard } from './guards/admin.guard';
 import { logoutGuard } from './guards/logout.guard';
 import { scannerGuard } from './guards/scanner.guard';
 import { userGuard } from './guards/user.guard';
+import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     component: RegisterPageComponent,
     path: PATHS.REGISTER,
+    canActivate: [logoutGuard],
+  },
+  {
+    component: VerifyAccountPageComponent,
+    path: PATHS.VERIFYACCOUNT + '/:token',
     canActivate: [logoutGuard],
   },
   {

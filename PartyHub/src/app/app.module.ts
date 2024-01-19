@@ -26,6 +26,7 @@ import { CommonModule } from '@angular/common';
 import { DiscountBarComponent } from './components/discount-bar/discount-bar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
     FooterComponent,
     PromoCodeDetailsComponent,
     DiscountBarComponent,
+    VerifyAccountPageComponent,
   ],
   imports: [
     BrowserModule,

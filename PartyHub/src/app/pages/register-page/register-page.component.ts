@@ -26,7 +26,11 @@ export class RegisterPageComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
       ]),
-      age: new FormControl(0, [Validators.required, Validators.min(18)]),
+      age: new FormControl(0, [
+        Validators.required,
+        Validators.min(18),
+        Validators.max(100),
+      ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
