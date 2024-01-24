@@ -2,13 +2,12 @@
   <img src="../../../assets/devil.svg" />
   <h1 class="title">Reset password</h1>
   <div class="input-label">
-    <label for="password">Enter mail</label>
-    <input
-      class="text-input"
-      id="email"
-      type="email"
-      formControlName="password"
-    />
+    <label for="password">Email</label>
+    <input class="text-input" id="email" type="email" formControlName="email" />
   </div>
-  <button class="btn" (click)="sendEmail()">Send</button>
+  <button *ngIf="!sent" class="btn" (click)="sendEmail()">Send</button>
+  <p *ngIf="sent">
+    An email has been sent to your<br />
+    email address!
+  </p>
 </form>

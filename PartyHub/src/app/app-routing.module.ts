@@ -21,7 +21,6 @@ import { userGuard } from './guards/user.guard';
 import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
   { component: EventsPageComponent, path: PATHS.EVENTS },
@@ -84,7 +83,7 @@ const routes: Routes = [
   },
   {
     component: ForgotPasswordPageComponent,
-    path: PATHS.FORGOTPASSWORD,
+    path: PATHS.RESETPASSWORD + '/:token',
     canActivate: [logoutGuard],
   },
   {
@@ -98,4 +97,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

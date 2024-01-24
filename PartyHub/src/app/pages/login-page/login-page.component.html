@@ -26,6 +26,8 @@
       [ngClass]="{ 'wrong-input-value': wrongPassword }"
     />
   </div>
+  <p *ngIf="notActivated" class="p-no-margin">Your account is not activated</p>
+  <p *ngIf="notActivated" class="p-no-margin">Check your email inbox!</p>
   <div>
     <p>Forgot your password?</p>
     <a class="link" (click)="navigateToResetPassword()">Reset it now</a>

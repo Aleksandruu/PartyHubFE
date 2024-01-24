@@ -21,10 +21,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  register(user: Register): Observable<string> {
-    return this.http
-      .post(enviroment.apiURL + '/auth/register', user, { observe: 'response' })
-      .pipe(map((response) => response.body as string));
+  register(user: Register): Observable<any> {
+    return this.http.post(enviroment.apiURL + '/auth/register', user, {
+      observe: 'response',
+    });
   }
 
   login(user: Login): Observable<Token> {
@@ -41,10 +41,19 @@ export class AuthenticationService {
     );
   }
 
+  sendResetPasswordEmail(email: string) {
+    return this.http.get(enviroment.apiURL + '/auth/reset-password/' + email);
+  }
+
+  resetPassword(token: string, password: string) {
+    return this.http.post(
+      enviroment.apiURL + '/auth/reset-password/' + token,
+      password
+    );
+  }
+
   verifyAccount(token: string): Observable<string> {
-    return this.http
-      .get(enviroment.apiURL + '/auth/verify/' + token, { observe: 'response' })
-      .pipe(map((response) => response.body as string));
+    return this.http.get<string>(enviroment.apiURL + '/auth/verify/' + token);
   }
 
   getDecodedToken(token: Token): DecodedToken {

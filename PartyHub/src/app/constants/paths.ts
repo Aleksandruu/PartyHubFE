@@ -13,6 +13,6 @@ export const PATHS = {
   REGISTER: 'register',
   VERIFYACCOUNT: 'verify',
   SCANTICKETS: 'scan-tickets',
-  FORGOTPASSWORD: 'forgot-password',
-  EMAILFORRESET: 'enter-email'
+  RESETPASSWORD: 'reset-password',
+  EMAILFORRESET: 'enter-email',
 };

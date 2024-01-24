@@ -47,7 +47,7 @@ import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-a
     NavbarComponent,
     FooterComponent,
     PromoCodeDetailsComponent,
-    EnterEmailPageComponent
+    EnterEmailPageComponent,
     DiscountBarComponent,
     VerifyAccountPageComponent,
   ],
