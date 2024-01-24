@@ -1,0 +1,67 @@
+.add-banner {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+.banner-label {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.name-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.location-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.date-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.details-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.price-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.discount-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.second-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

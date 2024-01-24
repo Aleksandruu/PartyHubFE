@@ -1,1 +1,66 @@
-<p>add-edit-page works!</p>
+<form class="container" [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+  <div class="name-design">
+    <label for="name">Name</label>
+    <input class="text-input" id="name" type="text" formControlName="name" />
+  </div>
+
+  <div class="add-banner">
+    <div class="main-design">
+      <label class="banner-label">Main banner</label>
+      <button class="btn-add" type="button" (click)="addMainBanner()">
+        Add
+      </button>
+    </div>
+    <div class="second-design">
+      <label class="banner-label">Secondary banner</label>
+      <button class="btn-add" type="button" (click)="addSecondaryBanner()">
+        Add
+      </button>
+    </div>
+  </div>
+
+  <div class="location-design">
+    <label for="location">Location</label>
+    <input
+      class="text-input"
+      id="location"
+      type="text"
+      formControlName="location"
+    />
+  </div>
+
+  <div class="date-design">
+    <label for="date">Date</label>
+    <input class="text-input" id="date" type="text" formControlName="date" />
+  </div>
+
+  <div class="details-design">
+    <label for="details">Details</label>
+    <textarea
+      class="text-input-big"
+      id="details"
+      formControlName="details"
+    ></textarea>
+  </div>
+
+  <div class="small-input-label">
+    <label for="price">Price</label>
+    <input
+      class="number-input-small"
+      id="price"
+      type="text"
+      formControlName="price"
+    />
+  </div>
+
+  <div class="small-input-label">
+    <label for="discount">Discount</label>
+    <input
+      class="number-input-small"
+      id="discount"
+      type="text"
+      formControlName="discount"
+    />
+  </div>
+  <button class="btn" type="submit">Add event</button>
+</form>
