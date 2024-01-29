@@ -23,6 +23,13 @@
   align-items: flex-start;
   margin-bottom: 0.5rem;
 }
+.coordinates-design {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
 .date-design {
   display: flex;
   justify-content: center;
@@ -64,4 +71,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+.container {
+  height: auto;
 }

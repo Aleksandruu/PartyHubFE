@@ -28,7 +28,15 @@
       formControlName="location"
     />
   </div>
-
+  <div class="coordinates-design">
+    <label for="coordinates">Coordinates</label>
+    <input
+      class="text-input"
+      id="location"
+      type="text"
+      formControlName="coordinates"
+    />
+  </div>
   <div class="date-design">
     <label for="date">Date</label>
     <input class="text-input" id="date" type="text" formControlName="date" />
@@ -48,7 +56,7 @@
     <input
       class="number-input-small"
       id="price"
-      type="text"
+      type="number"
       formControlName="price"
     />
   </div>
@@ -58,8 +66,17 @@
     <input
       class="number-input-small"
       id="discount"
-      type="text"
+      type="number"
       formControlName="discount"
+    />
+  </div>
+  <div class="small-input-label">
+    <label for="tickets-number">Tickets</label>
+    <input
+      class="number-input-small"
+      id="ticketsNumber"
+      type="number"
+      formControlName="ticketsNumber"
     />
   </div>
   <button class="btn" type="submit">Add event</button>
