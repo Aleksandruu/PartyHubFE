@@ -45,7 +45,10 @@ const routes: Routes = [
     path: PATHS.EDITPROFILE,
     canActivate: [userGuard],
   },
-  { component: EventPageComponent, path: PATHS.EVENT + '/:id' },
+  {
+    component: EventPageComponent,
+    path: PATHS.EVENT + '/:id',
+  },
   {
     component: LoginPageComponent,
     path: PATHS.LOGIN,

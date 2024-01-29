@@ -1,1 +1,19 @@
-<p>event-page works!</p>
+<div class="container" *ngIf="event | async as event">
+  <img src="" alt="" class="banner-sec" />
+  <h1 class="title">{{ event.name }}</h1>
+  <div class="icon-title">
+    <img src="../../../assets/Time.svg" alt="A clock icon" />
+    <h2>When?</h2>
+  </div>
+  <p class="small-data">{{ event.date }}</p>
+  <div class="icon-title">
+    <img src="../../../assets/Map.svg" alt="A map icon" />
+    <h2>Where?</h2>
+  </div>
+  <p class="small-data">{{ event.location }}</p>
+  <div class="icon-title">
+    <h2 class="why">Why?</h2>
+  </div>
+  <p>{{ event.details }}</p>
+  <button class="btn">Buy tickets</button>
+</div>
