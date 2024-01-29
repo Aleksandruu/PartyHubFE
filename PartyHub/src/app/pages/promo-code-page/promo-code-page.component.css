@@ -1,1 +1,26 @@
-
+.cadou {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+.code-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  margin-bottom: 100px;
+}
+.copy-align {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.copy {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
