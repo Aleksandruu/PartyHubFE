@@ -9,12 +9,19 @@ import { EventDetails } from 'src/app/types/event.type';
   styleUrls: ['./events-page.component.css'],
 })
 export class EventsPageComponent implements OnInit {
-  event!: Observable<EventDetails>;
+  event!: EventDetails;
+  noEvent = false;
 
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
-    this.event = this.eventService.getEvent();
-    this.event.subscribe();
+    this.eventService.getEvent().subscribe(
+      (event: EventDetails) => {
+        this.event = event;
+      },
+      (error: any) => {
+        this.noEvent = true;
+      }
+    );
   }
 }

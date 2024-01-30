@@ -10,6 +10,7 @@
   <a *ngIf="!isLoggedIn" (click)="navigateToRegister()">Register</a>
   <a (click)="navigateToPartyCode()">Party Code</a>
   <a *ngIf="isUser" (click)="navigateToProfile()">Profile</a>
+  <a *ngIf="isAdmin" (click)="navigateToAddEvent()">Add Event</a>
   <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
 </div>
 <div class="navbar-filler"></div>
