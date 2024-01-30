@@ -5,15 +5,18 @@
     <img src="../../../assets/Time.svg" alt="A clock icon" />
     <h2>When?</h2>
   </div>
-  <p class="small-data">{{ event.date }}</p>
+  <p class="data small-data">{{ event.date }}</p>
   <div class="icon-title">
     <img src="../../../assets/Map.svg" alt="A map icon" />
     <h2>Where?</h2>
   </div>
-  <p class="small-data">{{ event.location }}</p>
+  <p class="data small-data">{{ event.location }}</p>
+  <google-map [style]="styles">
+    <map-marker></map-marker>
+  </google-map>
   <div class="icon-title">
     <h2 class="why">Why?</h2>
   </div>
-  <p>{{ event.details }}</p>
+  <p class="data event-details">{{ event.details }}</p>
   <button class="btn">Buy tickets</button>
 </div>

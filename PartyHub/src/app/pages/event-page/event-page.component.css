@@ -20,6 +20,7 @@ h2 {
 
 .why {
   margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .small-data {
@@ -30,11 +31,12 @@ h2 {
   margin-bottom: 1rem;
 }
 
-p {
+.data {
   font-size: 20px;
   font-weight: 400;
   width: 80vw;
   margin: 0;
+  margin-bottom: 2rem;
 }
 
 .icon-title {
@@ -55,4 +57,22 @@ p {
 .btn {
   position: fixed;
   bottom: 6rem;
+}
+
+google-map,
+.map-container {
+  height: 260px !important;
+  width: 100% !important;
+}
+
+.event-details {
+  padding-bottom: 5rem;
+}
+
+.gmnoprint,
+.gm-svpc,
+.gm-control-active,
+.gm-fullscreen-control,
+.gm-style-mtc {
+  display: none !important;
 }

@@ -28,6 +28,7 @@ import { DiscountBarComponent } from './components/discount-bar/discount-bar.com
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-a
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    GoogleMapsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
