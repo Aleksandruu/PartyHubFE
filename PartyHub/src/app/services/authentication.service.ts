@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Register } from '../types/register.type';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { enviroment } from '../environments/environment.dev';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 import { Login } from '../types/login.type';
 import { LOCALSTORAGEKEYS } from '../constants/localStorage';
 import { Token } from '../types/token.type';
@@ -21,8 +21,10 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) {}
 
-  register(user: Register): Observable<null> {
-    return this.http.post<null>(enviroment.apiURL + '/auth/register', user);
+  register(user: Register): Observable<any> {
+    return this.http.post(enviroment.apiURL + '/auth/register', user, {
+      observe: 'response',
+    });
   }
 
   login(user: Login): Observable<Token> {
@@ -37,6 +39,21 @@ export class AuthenticationService {
         this.setSubjects();
       })
     );
+  }
+
+  sendResetPasswordEmail(email: string) {
+    return this.http.get(enviroment.apiURL + '/auth/reset-password/' + email);
+  }
+
+  resetPassword(token: string, password: string) {
+    return this.http.post(
+      enviroment.apiURL + '/auth/reset-password/' + token,
+      password
+    );
+  }
+
+  verifyAccount(token: string): Observable<string> {
+    return this.http.get<string>(enviroment.apiURL + '/auth/verify/' + token);
   }
 
   getDecodedToken(token: Token): DecodedToken {

@@ -11,6 +11,8 @@ export const PATHS = {
   PROMOCODE: 'promo-code',
   PROMOCODEDETAILS: 'promo-code-details',
   REGISTER: 'register',
+  VERIFYACCOUNT: 'verify',
   SCANTICKETS: 'scan-tickets',
-  FORGOTPASSWORD: 'forgot-password',
+  RESETPASSWORD: 'reset-password',
+  EMAILFORRESET: 'enter-email',
 };

@@ -13,4 +13,12 @@ export class ProfileService {
   getProfile(): Observable<Profile> {
     return this.http.get<Profile>(enviroment.apiURL + '/user/profile');
   }
+
+  deleteProfile(): Observable<string> {
+    return this.http.delete<string>(enviroment.apiURL + '/user/profile');
+  }
+
+  editProfile(profile: Profile): Observable<string> {
+    return this.http.put<string>(enviroment.apiURL + '/user/profile', profile);
+  }
 }

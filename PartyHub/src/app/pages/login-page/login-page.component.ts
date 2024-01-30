@@ -14,6 +14,7 @@ export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
   wrongEmail = false;
   wrongPassword = false;
+  notActivated = false;
 
   constructor(
     private router: Router,
@@ -39,7 +40,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   navigateToResetPassword() {
-    this.router.navigate([PATHS.FORGOTPASSWORD]);
+    this.router.navigate([PATHS.EMAILFORRESET]);
   }
 
   login() {
@@ -53,6 +54,11 @@ export class LoginPageComponent implements OnInit {
         this.navigateToEventsPage();
       },
       (err) => {
+        const errorBody = err.error;
+        console.log(errorBody);
+        if (errorBody && errorBody.activated === false) {
+          this.notActivated = true;
+        }
         if (err.status === 401) {
           this.wrongPassword = true;
           this.wrongEmail = true;

@@ -11,3 +11,7 @@ a {
 .wrong-input-value {
   border-color: red;
 }
+
+.p-no-margin {
+  margin-top: 0;
+}

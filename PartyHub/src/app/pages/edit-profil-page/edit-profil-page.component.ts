@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, tap } from 'rxjs';
 import { PATHS } from 'src/app/constants/paths';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Profile } from 'src/app/types/profile.type';
@@ -27,6 +26,10 @@ export class EditProfilPageComponent implements OnInit {
     });
   }
   save(): void {
-    this.router.navigate([PATHS.PROFILE]);
+    this.profile.fullName = this.editForm.value.fullName;
+    this.profile.age = this.editForm.value.age;
+    this.profileService
+      .editProfile(this.profile)
+      .subscribe(() => this.router.navigate([PATHS.PROFILE]));
   }
 }

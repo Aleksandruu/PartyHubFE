@@ -13,6 +13,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class RegisterPageComponent implements OnInit {
   registerForm!: FormGroup;
   passwordMissmatch = false;
+  sent = false;
 
   constructor(
     private router: Router,
@@ -26,7 +27,11 @@ export class RegisterPageComponent implements OnInit {
         Validators.required,
         Validators.minLength(5),
       ]),
-      age: new FormControl(0, [Validators.required, Validators.min(18)]),
+      age: new FormControl(0, [
+        Validators.required,
+        Validators.min(18),
+        Validators.max(100),
+      ]),
       password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
@@ -45,6 +50,7 @@ export class RegisterPageComponent implements OnInit {
   register(): void {
     let password = this.registerForm.value.password;
     let confirmPassword = this.registerForm.value.confirmPassword;
+    this.sent = true;
     if (password == confirmPassword) {
       let register: Register = {
         email: this.registerForm.value.email,
@@ -53,6 +59,7 @@ export class RegisterPageComponent implements OnInit {
         password: this.registerForm.value.password,
       };
       this.authentication.register(register).subscribe();
+      setTimeout(() => this.router.navigate([PATHS.LOGIN]), 3000);
     } else {
       this.passwordMissmatch = true;
     }
