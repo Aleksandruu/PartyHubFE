@@ -1,1 +1,20 @@
-<p>promo-code-page works!</p>
+<form class="container" [formGroup]="promoCodeForm">
+  <div class="cadou">
+    <button class="btn-add">Add</button>
+  </div>
+  <div class="code-align">
+    <div class="copy-align">
+      <label for="code"></label>
+      <input
+        class="number-input-small"
+        id="name"
+        type="text"
+        formControlName="code"
+      />
+    </div>
+    <mat-icon class="copy">file_copy</mat-icon>
+  </div>
+  <div class="buton">
+    <button class="btn">Generate code</button>
+  </div>
+</form>
