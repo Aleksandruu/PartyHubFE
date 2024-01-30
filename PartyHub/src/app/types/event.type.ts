@@ -4,6 +4,7 @@ export interface EventDetails {
   mainBanner: string;
   secondaryBanner: string;
   location: string;
+  coordinates: string;
   date: string;
   details: string;
   price: number;
