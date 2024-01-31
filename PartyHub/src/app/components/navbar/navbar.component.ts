@@ -14,6 +14,7 @@ export class NavbarComponent {
   navbarExtend = false;
   isLoggedIn = false;
   isUser = false;
+  isAdmin = false;
 
   constructor(
     private router: Router,
@@ -23,6 +24,7 @@ export class NavbarComponent {
       (value) => (this.isLoggedIn = value)
     );
     this.authentication.isUser.subscribe((value) => (this.isUser = value));
+    this.authentication.isAdmin.subscribe((value) => (this.isAdmin = value));
   }
 
   logout(): void {
@@ -47,6 +49,11 @@ export class NavbarComponent {
 
   navigateToProfile(): void {
     this.router.navigate([PATHS.PROFILE]);
+    this.closeNavbar();
+  }
+
+  navigateToAddEvent(): void {
+    this.router.navigate([PATHS.ADDEVENT]);
     this.closeNavbar();
   }
 

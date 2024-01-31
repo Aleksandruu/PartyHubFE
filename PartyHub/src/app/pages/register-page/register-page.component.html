@@ -80,9 +80,18 @@
   <p class="input-not-valid-text" *ngIf="passwordMissmatch">
     Passwords do not match
   </p>
-  <button class="btn" (click)="register()" [disabled]="registerForm.invalid">
+  <button
+    *ngIf="!sent"
+    class="btn"
+    (click)="register()"
+    [disabled]="registerForm.invalid"
+  >
     Register
   </button>
+  <p *ngIf="sent">
+    You will recive a confirmation <br />
+    email to activate your account!
+  </p>
   <div>
     <p>You already have an account?</p>
     <a class="link" (click)="navigateToLogin()">Sign in</a>

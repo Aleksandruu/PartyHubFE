@@ -1,1 +1,7 @@
-<p>events-page works!</p>
+<div class="container" *ngIf="event">
+  <button class="btn">Check this out!</button>
+</div>
+<div class="container" *ngIf="!event">
+  <p>No events yet!</p>
+  <p>Come back later!</p>
+</div>

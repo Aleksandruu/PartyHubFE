@@ -10,4 +10,5 @@ export interface EventDetails {
   price: number;
   discount: number;
   ticketsNumber: number;
+  ticketsLeft: number;
 }

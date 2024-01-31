@@ -5,10 +5,10 @@ import { PATHS } from './constants/paths';
 import { AddEditPageComponent } from './pages/add-edit-page/add-edit-page.component';
 import { EventsPageComponent } from './pages/events-page/events-page.component';
 import { BuyTicketPageComponent } from './pages/buy-ticket-page/buy-ticket-page.component';
-import { EditProfilPageComponent } from './pages/edit-profil-page/edit-profil-page.component';
+import { EditProfilPageComponent } from './pages/edit-profile-page/edit-profil-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { ProfilPageComponent } from './pages/profil-page/profil-page.component';
+import { ProfilPageComponent } from './pages/profile-page/profil-page.component';
 import { PromoCodePageComponent } from './pages/promo-code-page/promo-code-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets-page.component';
@@ -18,6 +18,8 @@ import { adminGuard } from './guards/admin.guard';
 import { logoutGuard } from './guards/logout.guard';
 import { scannerGuard } from './guards/scanner.guard';
 import { userGuard } from './guards/user.guard';
+import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
+import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -43,7 +45,10 @@ const routes: Routes = [
     path: PATHS.EDITPROFILE,
     canActivate: [userGuard],
   },
-  { component: EventPageComponent, path: PATHS.EVENT + '/:id' },
+  {
+    component: EventPageComponent,
+    path: PATHS.EVENT + '/:id',
+  },
   {
     component: LoginPageComponent,
     path: PATHS.LOGIN,
@@ -65,6 +70,11 @@ const routes: Routes = [
     canActivate: [logoutGuard],
   },
   {
+    component: VerifyAccountPageComponent,
+    path: PATHS.VERIFYACCOUNT + '/:token',
+    canActivate: [logoutGuard],
+  },
+  {
     component: ScanTicketsPageComponent,
     path: PATHS.SCANTICKETS,
     canActivate: [scannerGuard],
@@ -76,7 +86,12 @@ const routes: Routes = [
   },
   {
     component: ForgotPasswordPageComponent,
-    path: PATHS.FORGOTPASSWORD,
+    path: PATHS.RESETPASSWORD + '/:token',
+    canActivate: [logoutGuard],
+  },
+  {
+    component: EnterEmailPageComponent,
+    path: PATHS.EMAILFORRESET,
     canActivate: [logoutGuard],
   },
 ];
