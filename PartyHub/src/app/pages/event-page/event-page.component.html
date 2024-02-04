@@ -1,4 +1,8 @@
-<div class="container" *ngIf="event">
+<div *ngIf="notFound" class="container">
+  <h1 class="four-o-four">404</h1>
+  <h2 class="not-found">Event not found!</h2>
+</div>
+<div class="container scrollable" *ngIf="event">
   <img *ngIf="photoUrl" [src]="photoUrl" alt="" class="banner-sec" />
   <h1 class="title">{{ event.name }}</h1>
   <div class="icon-title">

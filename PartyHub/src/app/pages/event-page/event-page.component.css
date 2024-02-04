@@ -1,4 +1,4 @@
-.container {
+.scrollable {
   height: auto;
 }
 
@@ -75,4 +75,18 @@ google-map,
 .gm-fullscreen-control,
 .gm-style-mtc {
   display: none !important;
+}
+
+.four-o-four,
+.not-found {
+  color: rgb(140, 140, 140);
+  margin: 0;
+}
+
+.four-o-four {
+  font-size: 130px;
+}
+
+.not-found {
+  font-size: 30px;
 }

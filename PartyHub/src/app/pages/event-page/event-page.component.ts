@@ -17,6 +17,7 @@ export class EventPageComponent implements OnInit {
   zoom = 12;
   id!: string;
   photoUrl!: SafeResourceUrl;
+  notFound = false;
 
   constructor(
     private eventService: EventService,
@@ -29,15 +30,20 @@ export class EventPageComponent implements OnInit {
       this.id = params['id'];
     });
 
-    this.eventService.getEvent(this.id).subscribe((event) => {
-      this.event = event;
-      this.center = {
-        lat: event.lat,
-        lng: event.lng,
-      };
-      this.photoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-        'data:image/jpg;base64,' + event.secondaryBanner
-      );
-    });
+    this.eventService.getEvent(this.id).subscribe(
+      (event) => {
+        this.event = event;
+        this.center = {
+          lat: event.lat,
+          lng: event.lng,
+        };
+        this.photoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          'data:image/jpg;base64,' + event.secondaryBanner
+        );
+      },
+      (error) => {
+        this.notFound = true;
+      }
+    );
   }
 }
