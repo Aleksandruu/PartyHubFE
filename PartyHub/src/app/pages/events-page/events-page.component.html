@@ -1,5 +1,6 @@
 <div class="container" *ngIf="event">
-  <button class="btn">Check this out!</button>
+  <img *ngIf="photoUrl" [src]="photoUrl" alt="" class="image" />
+  <button class="btn" (click)="goToEvent()">Check this out!</button>
 </div>
 <div class="container" *ngIf="!event">
   <p>No events yet!</p>
