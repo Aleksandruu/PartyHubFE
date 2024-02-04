@@ -1,20 +1,24 @@
 <form class="container" [formGroup]="promoCodeForm">
-  <div class="cadou">
-    <button class="btn-add">Add</button>
-  </div>
-  <div class="code-align">
-    <div class="copy-align">
-      <label for="code"></label>
-      <input
-        class="number-input-small"
-        id="name"
-        type="text"
-        formControlName="code"
-      />
-    </div>
-    <mat-icon class="copy">file_copy</mat-icon>
-  </div>
-  <div class="buton">
-    <button class="btn">Generate code</button>
-  </div>
+  <div class="present"></div>
+  <p class="party-text">Your party code</p>
+  <input
+    class="number-input"
+    type="text"
+    formControlName="promoCode"
+    [ngModel]="promoCode"
+    [ngClass]="{
+      'wrong-input-value':
+        promoCodeForm.get('promoCode')!.invalid &&
+        promoCodeForm.get('promoCode')!.touched
+    }"
+  />
+  <p class="input-not-valid-text" *ngIf="">
+    Party Code should be 5-9 characters long
+  </p>
+  <button *ngIf="!promoCode" class="btn" (click)="generatePromoCode()">
+    Generate code
+  </button>
+  <button *ngIf="promoCode" class="btn" (click)="editPromoCode()">
+    Edit code
+  </button>
 </form>

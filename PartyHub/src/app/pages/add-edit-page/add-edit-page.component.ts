@@ -23,7 +23,7 @@ export class AddEditPageComponent {
   constructor(
     private httpClient: HttpClient,
     private eventService: EventService
-  ) {}
+  ) { }
 
   onSubmit() {
     const formData: EventDetails = {
@@ -38,6 +38,7 @@ export class AddEditPageComponent {
       price: this.addEventForm.value.price!,
       discount: this.addEventForm.value.discount!,
       ticketsNumber: this.addEventForm.value.ticketsNumber!,
+      ticketsLeft: this.addEventForm.value.ticketsNumber!,
     };
 
     this.eventService.postEvent(formData).subscribe();
