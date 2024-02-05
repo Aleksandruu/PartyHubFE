@@ -3,9 +3,6 @@ import { Injectable } from '@angular/core';
 import { EventDetails } from '../types/event.type';
 import { enviroment } from '../environments/environment.dev';
 import { Observable } from 'rxjs';
-import { enviroment } from '../environments/environment.dev';
-import { EventDetails } from '../types/event.type';
-
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +13,12 @@ export class EventService {
   postEvent(event: EventDetails) {
     return this.http.post(enviroment.apiURL + '/admin/event', event);
   }
-  
+
   getEvent(): Observable<EventDetails> {
     return this.http.get<EventDetails>(enviroment.apiURL + '/public/event');
+  }
+
+  getEventsList() {
+    return null;
   }
 }

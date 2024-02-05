@@ -38,6 +38,7 @@ export class AddEditPageComponent {
       price: this.addEventForm.value.price!,
       discount: this.addEventForm.value.discount!,
       ticketsNumber: this.addEventForm.value.ticketsNumber!,
+      ticketsLeft: 0,
     };
 
     this.eventService.postEvent(formData).subscribe();
