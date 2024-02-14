@@ -1,26 +1,16 @@
-.cadou {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  align-items: center;
-  margin-top: 150px;
-  margin-bottom: 100px;
+.party-text {
+  font-size: larger;
 }
-.code-align {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  color: white;
-  margin-bottom: 100px;
+
+.present {
+  padding: 20px;
 }
-.copy-align {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+
+.number-input {
+  margin-bottom: 20px;
 }
-.copy {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
+
+.btn {
+  position: fixed;
+  bottom: 100px;
 }
