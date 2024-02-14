@@ -1,6 +1,6 @@
 <form class="container" [formGroup]="editForm" *ngIf="profile">
   <img src="../../../assets/devil.svg" />
-  <div class="fullName-design">
+  <div class="input-label">
     <label for="fullName">Full Name</label>
     <input
       class="text-input"
@@ -9,7 +9,7 @@
       formControlName="fullName"
     />
   </div>
-  <div class="age-design">
+  <div class="small-input-label">
     <label for="age">Age</label>
     <input class="number-input" id="age" type="number" formControlName="age" />
   </div>

@@ -12,33 +12,34 @@ export class PromoCodePageComponent {
   promoCode!: string;
   promoCodeForm!: FormGroup;
   invalid = false;
-  constructor(private profileService: ProfileService) { }
+  selected = false;
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
     this.promoCodeForm = new FormGroup({
-      promoCode: new FormControl(this.promoCode,
-        [
-          Validators.required, Validators.minLength(5), Validators.maxLength(9)
-        ])
+      promoCode: new FormControl(this.promoCode, [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(9),
+      ]),
     });
-    this.profileService.getPromoCode().subscribe(
-      x => {
-        this.promoCode = x.message;
-      }
-    );
-
+    this.profileService.getPromoCode().subscribe((x) => {
+      this.promoCode = x.message;
+    });
   }
   generatePromoCode(): void {
-    this.profileService.generatePromoCode().subscribe(
-      (x) => this.promoCode = x.message
-    );
+    this.profileService
+      .generatePromoCode()
+      .subscribe((x) => (this.promoCode = x.message));
   }
   editPromoCode(): void {
     const promoCode = this.promoCodeForm.value.promoCode;
-    if (this.promoCodeForm.get(promoCode)?.invalid) { this.invalid = true; }
-    else {
+    this.selected = true;
+    setTimeout(() => (this.selected = false), 3000);
+    if (this.promoCodeForm.get(promoCode)?.invalid) {
+      this.invalid = true;
+    } else {
       this.profileService.editPromoCode(promoCode).subscribe();
     }
   }
-
 }

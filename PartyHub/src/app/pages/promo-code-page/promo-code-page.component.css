@@ -14,3 +14,10 @@
   position: fixed;
   bottom: 100px;
 }
+
+.selected {
+  font-size: 20px;
+  position: fixed;
+  bottom: 100px;
+  text-align: center;
+}
