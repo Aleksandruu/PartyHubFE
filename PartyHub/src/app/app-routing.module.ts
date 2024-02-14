@@ -20,6 +20,7 @@ import { scannerGuard } from './guards/scanner.guard';
 import { userGuard } from './guards/user.guard';
 import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
+import { EventsListPageComponent } from './pages/events-list-page/events-list-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 
 const routes: Routes = [
@@ -96,6 +97,11 @@ const routes: Routes = [
     canActivate: [logoutGuard],
   },
   {
+    component: EventsListPageComponent,
+    path: PATHS.EVENTLIST,
+    canActivate: [adminGuard],
+  },
+  {    
     component: NotFoundPageComponent,
     path: '**',
   },

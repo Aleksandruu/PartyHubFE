@@ -15,4 +15,5 @@ export const PATHS = {
   SCANTICKETS: 'scan-tickets',
   RESETPASSWORD: 'reset-password',
   EMAILFORRESET: 'enter-email',
+  EVENTLIST: 'event-list',
 };
