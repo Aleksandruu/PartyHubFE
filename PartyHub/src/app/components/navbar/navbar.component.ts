@@ -57,6 +57,16 @@ export class NavbarComponent {
     this.closeNavbar();
   }
 
+  navigateToEventsData(): void {
+    this.router.navigate([PATHS.EVENTLIST]);
+    this.closeNavbar();
+  }
+
+  navigateToEvents(): void {
+    this.router.navigate([PATHS.EVENTS]);
+    this.closeNavbar();
+  }
+
   toggleNavbar(): void {
     this.navbarExtend = !this.navbarExtend;
   }

@@ -31,7 +31,11 @@
   <button *ngIf="!promoCode" class="btn" (click)="generatePromoCode()">
     Generate code
   </button>
-  <button *ngIf="promoCode" class="btn" (click)="editPromoCode()">
+  <button *ngIf="promoCode && !selected" class="btn" (click)="editPromoCode()">
     Edit code
   </button>
+  <p class="selected" *ngIf="selected">
+    Your party code has <br />
+    been changed!
+  </p>
 </form>

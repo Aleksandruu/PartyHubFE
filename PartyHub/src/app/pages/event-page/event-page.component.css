@@ -90,3 +90,7 @@ google-map,
 .not-found {
   font-size: 30px;
 }
+
+google-map {
+  filter: grayscale(100%) invert(100%);
+}

@@ -15,6 +15,7 @@ export class EventService {
     return this.http.post<string>(enviroment.apiURL + '/admin/event', formData);
   }
 
+
   getEvent(id: string): Observable<EventDetails> {
     return this.http.get<EventDetails>(
       enviroment.apiURL + '/public/event/' + id
@@ -23,5 +24,9 @@ export class EventService {
 
   getEventPhoto(): Observable<EventPhoto> {
     return this.http.get<EventPhoto>(enviroment.apiURL + '/public/event');
+  }
+
+  getEventsList() {
+    return null;
   }
 }

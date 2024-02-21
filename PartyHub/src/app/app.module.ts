@@ -29,6 +29,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { EventItemComponent } from './components/event-item/event-item.component';
+import { EventsListPageComponent } from './pages/events-list-page/events-list-page.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     EnterEmailPageComponent,
     DiscountBarComponent,
     VerifyAccountPageComponent,
+    EventItemComponent,
+    EventsListPageComponent,
   ],
   imports: [
     BrowserModule,
