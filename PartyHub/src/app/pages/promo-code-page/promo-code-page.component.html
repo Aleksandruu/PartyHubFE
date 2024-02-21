@@ -1,5 +1,18 @@
 <form class="container" [formGroup]="promoCodeForm">
-  <div class="present"></div>
+  <div class="present">
+    <img
+      src="../../../assets/top-box.svg"
+      alt=""
+      class="top-box"
+      [ngClass]="{ 'top-box-open': open }"
+    />
+    <img
+      src="../../../assets/bottom-box.svg"
+      alt=""
+      class="bottom-box"
+      (click)="toggleOpen()"
+    />
+  </div>
   <p class="party-text">Your party code</p>
   <input
     class="number-input"

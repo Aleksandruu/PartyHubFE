@@ -12,7 +12,12 @@ export class PromoCodePageComponent {
   promoCode!: string;
   promoCodeForm!: FormGroup;
   invalid = false;
+  open = false;
   constructor(private profileService: ProfileService) { }
+
+  toggleOpen() {
+    this.open = !this.open;
+  }
 
   ngOnInit() {
     this.promoCodeForm = new FormGroup({
