@@ -7,10 +7,6 @@
   padding: 20px;
 }
 
-.number-input {
-  margin-bottom: 20px;
-}
-
 .btn {
   position: fixed;
   bottom: 100px;
@@ -62,4 +58,21 @@ img {
   transform: translateY(-1rem) translateX(-1rem) rotate(-30deg) translateY(2rem);
   top: -9rem;
   left: -2rem;
+}
+
+.copy-icon {
+  margin-left: 10px;
+  color: white;
+}
+
+.input-copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-not-valid-text {
+  margin-top: 1rem;
+  position: fixed;
+  bottom: 20rem;
 }

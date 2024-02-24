@@ -44,9 +44,6 @@ export class PromoCodePageComponent {
   }
   editPromoCode(): void {
     this.changed = true;
-    setTimeout(() => {
-      this.changed = false;
-    }, 3000);
 
     const promoCode = this.promoCodeForm.value.promoCode;
     if (this.promoCodeForm.get(promoCode)?.invalid) {
@@ -54,10 +51,20 @@ export class PromoCodePageComponent {
     } else {
       this.profileService.editPromoCode(promoCode).subscribe();
     }
+    setTimeout(() => {
+      this.changed = false;
+      this.invalid = false;
+    }, 3000);
   }
 
   confetti(): void {
     party.confetti(document.getElementById('confetti')!);
   }
 
+  copyToClipboard(): void {
+    const inputElement = document.getElementById('promoCodeInput') as HTMLInputElement;
+    inputElement.select();
+    document.execCommand('copy');
+
+  }
 }
