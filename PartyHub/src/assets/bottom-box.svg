@@ -1,55 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 27.5.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 114.6 98" style="enable-background:new 0 0 114.6 98;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#1F2020;}
-	.st1{fill:#ED1C24;}
-</style>
-<g id="Layer_2_00000122708937365666917660000000764916231714897837_">
-	<g id="Layer_1-2">
-		<g id="Layer_2-2">
-			<g id="Layer_1-2-2">
-				<g id="Layer_2-2-2">
-					<g id="Layer_1-2-2-2">
-						<g>
-							
-								<image style="overflow:visible;opacity:0.75;" width="88" height="93" xlink:href="FD186E37.png"  transform="matrix(1 0 0 1 -8 -20)">
-							</image>
-							<g>
-								<path d="M0,15.3v47.6h57.3V0.1C38.2,5.2,19.1,10.3,0,15.3z"/>
-							</g>
-						</g>
-						<g>
-							
-								<image style="overflow:visible;opacity:0.75;enable-background:new    ;" width="88" height="94" xlink:href="FD186E32.png"  transform="matrix(1 0 0 1 47 -20)">
-							</image>
-							<g>
-								<polygon class="st0" points="71.1,3.6 57.7,0 57.3,0.1 57.3,63.7 114.6,63.7 114.6,15.2 								"/>
-							</g>
-						</g>
-						<g>
-							
-								<image style="overflow:visible;opacity:0.75;" width="88" height="113" xlink:href="FD186E33.png"  transform="matrix(1 0 0 1 -8 7)">
-							</image>
-							<g>
-								<path class="st0" d="M57.4,98V30.1C38.2,25.2,19.1,20.2,0,15.2v67C19.1,87.4,38.3,92.7,57.4,98z"/>
-							</g>
-						</g>
-						<g>
-							
-								<image style="overflow:visible;opacity:0.75;enable-background:new    ;" width="88" height="113" xlink:href="FD186E36.png"  transform="matrix(1 0 0 1 47 -5)">
-							</image>
-							<g>
-								<path d="M87.9,89.8l26.7-7.2V15.2c-19.1,5-38.2,10-57.3,14.9V98h0.1L87.9,89.8z"/>
-							</g>
-						</g>
-						<path class="st1" d="M79.7,24.2v68l16-4.2V19.8L79.7,24.2z"/>
-						<path class="st1" d="M36.7,24.8v68.1l-16-4.2V20.4L36.7,24.8z"/>
-					</g>
-				</g>
-			</g>
-		</g>
-	</g>
-</g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114.61 98">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ed1c24;
+      }
+
+      .cls-2 {
+        fill: #191313;
+      }
+    </style>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <g id="Layer_1-2" data-name="Layer 1-2">
+      <g id="Layer_2-2" data-name="Layer 2-2">
+        <g id="Layer_1-2-2" data-name="Layer 1-2-2">
+          <g id="Layer_2-2-2" data-name="Layer 2-2-2">
+            <g id="Layer_1-2-2-2" data-name="Layer 1-2-2-2">
+              <path d="m0,15.32v47.57h57.32V.1C38.22,5.19,19.11,10.27,0,15.32Z"/>
+              <path class="cls-2" d="m71.08,3.6l-13.39-3.6-.37.1v63.63h57.29V15.21L71.08,3.6Z"/>
+              <path class="cls-2" d="m57.36,98V30.12C38.21,25.22,19.09,20.25,0,15.21v67c19.13,5.19,38.25,10.46,57.36,15.79Z"/>
+              <path d="m87.91,89.83l26.7-7.15V15.21c-19.07,5.01-38.18,9.97-57.31,14.87v67.92h.06l30.55-8.17Z"/>
+              <path class="cls-1" d="m79.67,24.21v68l16-4.24V19.83l-16,4.38Z"/>
+              <path class="cls-1" d="m36.66,24.75v68.09l-16-4.24V20.41l16,4.34Z"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
 </svg>

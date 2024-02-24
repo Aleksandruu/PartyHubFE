@@ -1,5 +1,6 @@
 .party-text {
   font-size: larger;
+  margin: 1rem;
 }
 
 .present {
@@ -15,11 +16,16 @@
   bottom: 100px;
 }
 
+.selected {
+  position: fixed;
+  bottom: 100px;
+  text-align: center;
+}
+
 img {
   width: 150px;
   position: fixed;
 }
-
 @keyframes moveAndRotate {
   0% {
     transform: translateY(0) rotate(0);

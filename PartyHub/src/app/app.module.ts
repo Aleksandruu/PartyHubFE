@@ -72,4 +72,4 @@ import { EventsListPageComponent } from './pages/events-list-page/events-list-pa
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

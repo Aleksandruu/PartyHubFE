@@ -1,4 +1,4 @@
-<form class="container" [formGroup]="promoCodeForm">
+<form class="container" [formGroup]="promoCodeForm" id="confetti">
   <div class="present">
     <img
       src="../../../assets/top-box.svg"
@@ -6,13 +6,9 @@
       class="top-box"
       [ngClass]="{ 'top-box-open': open }"
     />
-    <img
-      src="../../../assets/bottom-box.svg"
-      alt=""
-      class="bottom-box"
-      (click)="toggleOpen()"
-    />
+    <img src="../../../assets/bottom-box.svg" alt="" class="bottom-box" />
   </div>
+  <div class="filler"></div>
   <p class="party-text">Your party code</p>
   <input
     class="number-input"
@@ -31,10 +27,14 @@
   <button *ngIf="!promoCode" class="btn" (click)="generatePromoCode()">
     Generate code
   </button>
-  <button *ngIf="promoCode && !open" class="btn" (click)="editPromoCode()">
+  <button
+    *ngIf="promoCode && open && !changed"
+    class="btn"
+    (click)="editPromoCode()"
+  >
     Edit code
   </button>
-  <p class="selected" *ngIf="open">
+  <p class="selected" *ngIf="changed">
     Your party code has <br />
     been changed!
   </p>

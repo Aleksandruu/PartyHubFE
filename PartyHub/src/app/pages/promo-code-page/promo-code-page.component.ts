@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
+import { timeout } from 'rxjs';
 import { ProfileService } from 'src/app/services/profile.service';
+import party from "party-js";
 
 @Component({
   selector: 'app-promo-code-page',
@@ -13,13 +15,12 @@ export class PromoCodePageComponent {
   promoCodeForm!: FormGroup;
   invalid = false;
   open = false;
-  constructor(private profileService: ProfileService) { }
+  changed = false;
+  constructor(private profileService: ProfileService, private elementRef: ElementRef) { }
 
-  toggleOpen() {
-    this.open = !this.open;
-  }
 
   ngOnInit() {
+    console.log(this.open);
     this.promoCodeForm = new FormGroup({
       promoCode: new FormControl(this.promoCode, [
         Validators.required,
@@ -29,21 +30,34 @@ export class PromoCodePageComponent {
     });
     this.profileService.getPromoCode().subscribe((x) => {
       this.promoCode = x.message;
+      this.open = this.promoCode != '' && this.promoCode != null;
     });
   }
   generatePromoCode(): void {
+    this.open = true;
     this.profileService
       .generatePromoCode()
-      .subscribe((x) => (this.promoCode = x.message));
+      .subscribe((x) => {
+        this.promoCode = x.message;
+        this.confetti();
+      });
   }
   editPromoCode(): void {
+    this.changed = true;
+    setTimeout(() => {
+      this.changed = false;
+    }, 3000);
+
     const promoCode = this.promoCodeForm.value.promoCode;
-    this.open = true;
-    setTimeout(() => (this.open = false), 3000);
     if (this.promoCodeForm.get(promoCode)?.invalid) {
       this.invalid = true;
     } else {
       this.profileService.editPromoCode(promoCode).subscribe();
     }
   }
+
+  confetti(): void {
+    party.confetti(document.getElementById('confetti')!);
+  }
+
 }
