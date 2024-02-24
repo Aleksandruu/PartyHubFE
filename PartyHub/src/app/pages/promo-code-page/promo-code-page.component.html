@@ -18,7 +18,8 @@
       formControlName="promoCode"
       [ngModel]="promoCode"
       [ngClass]="{
-        'wrong-input-value': promoCodeForm.get('promoCode')!.invalid
+        'wrong-input-value':
+          promoCodeForm.get('promoCode')!.invalid && promoCode
       }"
       [disabled]="!promoCode"
     />
@@ -28,7 +29,9 @@
   </div>
   <p
     class="input-not-valid-text"
-    *ngIf="promoCodeForm.get('promoCode')?.invalid || promoCode == ''"
+    *ngIf="
+      promoCode && (promoCodeForm.get('promoCode')?.invalid || promoCode == '')
+    "
   >
     Party Code should be 5-9 characters long
   </p>
