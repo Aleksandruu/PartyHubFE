@@ -83,4 +83,4 @@ import { AdminEventDetailsPageComponent } from './pages/admin-event-details-page
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
