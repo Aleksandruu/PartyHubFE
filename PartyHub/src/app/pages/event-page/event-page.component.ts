@@ -2,8 +2,9 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EventService } from 'src/app/services/event.service';
 import { EventDetails } from 'src/app/types/event.type';
 import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { PATHS } from 'src/app/constants/paths';
 
 @Component({
   selector: 'app-event-page',
@@ -22,7 +23,8 @@ export class EventPageComponent implements OnInit {
   constructor(
     private eventService: EventService,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -45,5 +47,9 @@ export class EventPageComponent implements OnInit {
         this.notFound = true;
       }
     );
+  }
+
+  navigateToCheckout(): void {
+    this.router.navigate([PATHS.CHECKOUT + '/' + this.event.id]);
   }
 }

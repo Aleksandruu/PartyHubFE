@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PATHS } from 'src/app/constants/paths';
+import { EventService } from 'src/app/services/event.service';
 import { EventItem } from 'src/app/types/eventItem.type';
 
 @Component({
@@ -6,32 +9,18 @@ import { EventItem } from 'src/app/types/eventItem.type';
   templateUrl: './events-list-page.component.html',
   styleUrl: './events-list-page.component.css',
 })
-export class EventsListPageComponent {
-  events: EventItem[] = [
-    {
-      name: 'Concert RockFest',
-      city: 'București',
-      date: '23-10-2023',
-    },
-    {
-      name: 'Expoziție de Artă Modernă',
-      city: 'Cluj-Napoca',
-      date: '05-03-2024',
-    },
-    {
-      name: 'Conferință Tech Summit',
-      city: 'Timișoara',
-      date: '20-04-2024',
-    },
-    {
-      name: 'Festival de Film',
-      city: 'Iași',
-      date: '12-05-2024',
-    },
-    {
-      name: 'Eveniment Gastronomic',
-      city: 'Constanța',
-      date: '08-06-2024',
-    },
-  ];
+export class EventsListPageComponent implements OnInit {
+  events!: EventItem[];
+
+  constructor(private eventService: EventService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.eventService
+      .getEventsList()
+      .subscribe((events) => (this.events = events));
+  }
+
+  navigateToEventDetailsPage(id: string): void {
+    this.router.navigate([PATHS.EVENTDETAILSADMIN + '/' + id]);
+  }
 }

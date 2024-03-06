@@ -16,4 +16,9 @@ export const PATHS = {
   RESETPASSWORD: 'reset-password',
   EMAILFORRESET: 'enter-email',
   EVENTLIST: 'event-list',
+  EVENTDETAILSADMIN: 'event-details',
+  CHECKOUT: 'checkout',
+  PAYMENT: 'payment',
+  PAYMENTCANCEL: 'payment-cancel',
+  PAYMENTSUCCESS: 'payment-success',
 };

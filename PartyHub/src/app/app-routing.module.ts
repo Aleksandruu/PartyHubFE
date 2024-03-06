@@ -22,6 +22,11 @@ import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-pa
 import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-account-page.component';
 import { EventsListPageComponent } from './pages/events-list-page/events-list-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { PaymentCancelPageComponent } from './pages/payment-cancel-page/payment-cancel-page.component';
+import { PaymentDonePageComponent } from './pages/payment-done-page/payment-done-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { AdminEventDetailsPageComponent } from './pages/admin-event-details-page/admin-event-details-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: PATHS.EVENTS, pathMatch: 'full' },
@@ -87,6 +92,22 @@ const routes: Routes = [
     canActivate: [userGuard],
   },
   {
+    component: CheckoutPageComponent,
+    path: PATHS.CHECKOUT + '/:id',
+  },
+  {
+    component: PaymentPageComponent,
+    path: PATHS.PAYMENT,
+  },
+  {
+    component: PaymentCancelPageComponent,
+    path: PATHS.PAYMENTCANCEL,
+  },
+  {
+    component: PaymentDonePageComponent,
+    path: PATHS.PAYMENTSUCCESS,
+  },
+  {
     component: ForgotPasswordPageComponent,
     path: PATHS.RESETPASSWORD + '/:token',
     canActivate: [logoutGuard],
@@ -101,7 +122,12 @@ const routes: Routes = [
     path: PATHS.EVENTLIST,
     canActivate: [adminGuard],
   },
-  {    
+  {
+    component: AdminEventDetailsPageComponent,
+    path: PATHS.EVENTDETAILSADMIN + '/:id',
+    canActivate: [adminGuard],
+  },
+  {
     component: NotFoundPageComponent,
     path: '**',
   },

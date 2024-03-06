@@ -15,7 +15,10 @@ body {
   /* Alte stiluri pentru body sau pentru clasă/containerul principal al aplicației */
 }
 
-p {
+p,
+h1,
+h2,
+h3 {
   color: white;
 }
 
@@ -25,7 +28,7 @@ label {
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
   font-size: 20px !important;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .container {
@@ -60,7 +63,7 @@ label {
 .number-input {
   box-sizing: border-box;
   height: 3rem;
-  width: 13.75rem;
+  width: 11.75rem;
   background-color: transparent;
   border-radius: 1rem;
   outline: none;
@@ -121,5 +124,23 @@ label {
   text-align: center;
   margin: 0;
   font-size: 20px;
+  font-weight: 400;
+}
+
+.data-list {
+  width: 18.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.data-list-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.data-list-row > p {
+  margin: 0.5rem;
+  font-size: 18px;
   font-weight: 400;
 }
