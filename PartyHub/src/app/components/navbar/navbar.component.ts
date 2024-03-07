@@ -3,7 +3,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { PATHS } from 'src/app/constants/paths';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { BehaviorSubject, map } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -64,6 +63,11 @@ export class NavbarComponent {
 
   navigateToEvents(): void {
     this.router.navigate([PATHS.EVENTS]);
+    this.closeNavbar();
+  }
+
+  navigateToAdminPage(): void {
+    this.router.navigate([PATHS.ADMIN]);
     this.closeNavbar();
   }
 

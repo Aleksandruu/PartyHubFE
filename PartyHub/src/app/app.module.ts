@@ -19,7 +19,7 @@ import { RouterModule } from '@angular/router';
 import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { EnterEmailPageComponent } from './pages/enter-email-page/enter-email-page.component';
@@ -31,6 +31,11 @@ import { VerifyAccountPageComponent } from './pages/verify-account-page/verify-a
 import { GoogleMapsModule } from '@angular/google-maps';
 import { EventItemComponent } from './components/event-item/event-item.component';
 import { EventsListPageComponent } from './pages/events-list-page/events-list-page.component';
+import { PaymentPageComponent } from './pages/payment-page/payment-page.component';
+import { PaymentDonePageComponent } from './pages/payment-done-page/payment-done-page.component';
+import { PaymentCancelPageComponent } from './pages/payment-cancel-page/payment-cancel-page.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
+import { AdminEventDetailsPageComponent } from './pages/admin-event-details-page/admin-event-details-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +60,11 @@ import { EventsListPageComponent } from './pages/events-list-page/events-list-pa
     VerifyAccountPageComponent,
     EventItemComponent,
     EventsListPageComponent,
+    PaymentPageComponent,
+    PaymentDonePageComponent,
+    PaymentCancelPageComponent,
+    CheckoutPageComponent,
+    AdminEventDetailsPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +76,7 @@ import { EventsListPageComponent } from './pages/events-list-page/events-list-pa
     HttpClientModule,
     CommonModule,
     GoogleMapsModule,
+    FormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
