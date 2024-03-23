@@ -14,6 +14,7 @@ export class NavbarComponent {
   isLoggedIn = false;
   isUser = false;
   isAdmin = false;
+  isScanner = false;
 
   constructor(
     private router: Router,
@@ -24,6 +25,9 @@ export class NavbarComponent {
     );
     this.authentication.isUser.subscribe((value) => (this.isUser = value));
     this.authentication.isAdmin.subscribe((value) => (this.isAdmin = value));
+    this.authentication.isScanner.subscribe(
+      (value) => (this.isScanner = value)
+    );
   }
 
   logout(): void {

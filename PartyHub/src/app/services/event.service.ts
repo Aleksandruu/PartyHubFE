@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { EventPhoto } from '../types/eventPhoto.type';
 import { EventItem } from '../types/eventItem.type';
 import { ApiResponse } from '../types/apiResponse.type';
+import { EventStatistics } from '../types/eventStatistics.type';
 
 @Injectable({
   providedIn: 'root',
@@ -31,8 +32,11 @@ export class EventService {
     return this.http.get<EventItem[]>(enviroment.apiURL + '/admin/events');
   }
 
-  generateInvites(invites: number): Observable<any> {
-    return this.http.post<any>(enviroment.apiURL + '/admin/invites', invites);
+  generateInvites(invites: number, eventId: string): Observable<any> {
+    return this.http.post<any>(
+      enviroment.apiURL + '/admin/invites/' + eventId,
+      invites
+    );
   }
 
   generateDiscount(eventId: string, value: number): Observable<ApiResponse> {
@@ -56,6 +60,19 @@ export class EventService {
       {
         params,
       }
+    );
+  }
+
+  verifyTickets(code: string) {
+    return this.http.post<ApiResponse>(
+      enviroment.apiURL + '/scanner/validate/' + code,
+      null
+    );
+  }
+
+  getEventStatistics(eventId: string) {
+    return this.http.get<EventStatistics>(
+      enviroment.apiURL + '/admin/event-statistics/' + eventId
     );
   }
 }

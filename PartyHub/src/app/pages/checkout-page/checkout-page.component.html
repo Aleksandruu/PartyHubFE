@@ -1,5 +1,9 @@
 <div class="container" *ngIf="event">
-  <h1>Checkout</h1>
+  <h1 [ngClass]="{ fewTicketsMargin: !fewTickets }">Checkout</h1>
+  <h2 *ngIf="fewTickets">
+    Hurry up! <br />
+    Only a few tickets left
+  </h2>
   <form [formGroup]="ticketForm">
     <div class="input-label" *ngIf="!email">
       <label for="email">Email</label>
@@ -32,6 +36,15 @@
       <button class="btn" (click)="applyPartyCode()">Apply</button>
     </div>
   </form>
+  <div class="discount-container" *ngIf="loggedIn">
+    <div class="discount-info">
+      <app-discount-bar [discount]="30"></app-discount-bar>
+      <mat-icon class="info-icon" (click)="navigateToPromoCodeDetails()"
+        >info</mat-icon
+      >
+    </div>
+    <p class="discount-text">Discount for the next ticket: 30%</p>
+  </div>
   <div class="data-list">
     <div class="data-list-row">
       <p>Tickets value:</p>

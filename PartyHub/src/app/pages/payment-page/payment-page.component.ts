@@ -28,7 +28,6 @@ export class PaymentPageComponent implements OnInit {
       style: {
         base: {
           color: '#ffffff',
-          lineHeight: '30px',
           fontFamily: 'sans-serif',
           fontSize: '20px',
           '::placeholder': {
@@ -58,7 +57,10 @@ export class PaymentPageComponent implements OnInit {
     if (error) {
       console.error(error.message);
     } else {
-      console.log(token);
+      const payment = this.paymentService.getPaymentDetails();
+      payment!.token = token.id;
+      this.paymentService.savePaymentDetails(payment!);
+      this.paymentService.pay().subscribe();
     }
   }
 }

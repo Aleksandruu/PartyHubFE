@@ -14,6 +14,7 @@
   <a *ngIf="isAdmin" (click)="navigateToAddEvent()">Add Event</a>
   <a *ngIf="isAdmin" (click)="navigateToEventsData()">Events Data</a>
   <a *ngIf="isAdmin" (click)="navigateToAdminPage()">Admin</a>
+  <a *ngIf="isScanner" (click)="navigateToAdminPage()">Scan</a>
   <a *ngIf="isLoggedIn" (click)="logout()">Logout</a>
 </div>
 <div class="navbar-filler"></div>

@@ -11,7 +11,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilPageComponent } from './pages/profile-page/profil-page.component';
 import { PromoCodePageComponent } from './pages/promo-code-page/promo-code-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { ScanTicketsPageComponent } from './pages/scan-tickets-page/scan-tickets-page.component';
+import { ScanTicketPageComponent } from './pages/scan-ticket-page/scan-ticket-page.component';
 import { PromoCodeDetailsComponent } from './pages/promo-code-details/promo-code-details.component';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
 import { adminGuard } from './guards/admin.guard';
@@ -82,9 +82,8 @@ const routes: Routes = [
     canActivate: [logoutGuard],
   },
   {
-    component: ScanTicketsPageComponent,
-    path: PATHS.SCANTICKETS,
-    canActivate: [scannerGuard],
+    component: ScanTicketPageComponent,
+    path: PATHS.SCAN,
   },
   {
     component: PromoCodeDetailsComponent,

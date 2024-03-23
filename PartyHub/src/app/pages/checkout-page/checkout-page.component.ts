@@ -13,6 +13,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 import { ApiResponse } from 'src/app/types/apiResponse.type';
 import { EventDetails } from 'src/app/types/event.type';
 import { PaymentDetails } from 'src/app/types/paymentDetails.type';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-checkout-page',
@@ -25,6 +26,8 @@ export class CheckoutPageComponent {
   notFound = false;
   discount = 0;
   price = 0;
+  fewTickets = false;
+  loggedIn = false;
 
   ticketForm!: FormGroup;
   discountForm!: FormGroup;
@@ -42,8 +45,11 @@ export class CheckoutPageComponent {
   ) {}
 
   ngOnInit(): void {
-    this.email = localStorage.getItem(LOCALSTORAGEKEYS.EMAIL) || null;
-
+    const email = localStorage.getItem(LOCALSTORAGEKEYS.EMAIL) || null;
+    this.email = email;
+    if (email != null) {
+      this.loggedIn = true;
+    }
     this.route.params.subscribe((params) => {
       this.id = params['id'];
     });
@@ -51,6 +57,9 @@ export class CheckoutPageComponent {
     this.eventService.getEvent(this.id).subscribe(
       (event) => {
         this.event = event;
+        if (event.ticketsLeft <= (event.ticketsNumber * 20) / 100) {
+          this.fewTickets = true;
+        }
       },
       (error) => {
         this.notFound = true;
@@ -98,8 +107,9 @@ export class CheckoutPageComponent {
       token: '',
       tickets: this.ticketForm.value.numberOfTickets,
       userEmail: this.email!,
-      referalEmail: this.referralEmail || '',
+      referralEmail: this.referralEmail || '',
       discountCode: this.appliedCode || '',
+      eventId: this.id,
     };
 
     this.paymentService.savePaymentDetails(payment);
@@ -108,5 +118,8 @@ export class CheckoutPageComponent {
         this.discount
     );
     this.router.navigate([PATHS.PAYMENT]);
+  }
+  navigateToPromoCodeDetails(): void {
+    this.router.navigate([PATHS.PROMOCODEDETAILS]);
   }
 }

@@ -25,18 +25,4 @@
       >
     </div>
   </div>
-  <div class="discount-container">
-    <div class="discount-info">
-      <app-discount-bar
-        [discount]="profile.discountForNextTicket"
-      ></app-discount-bar>
-      <mat-icon class="info-icon" (click)="navigateToPromoCodeDetails()"
-        >info</mat-icon
-      >
-    </div>
-    <p class="discount-text">
-      Discount for the <br />
-      next ticket: {{ profile.discountForNextTicket }}%
-    </p>
-  </div>
 </div>

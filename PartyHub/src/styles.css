@@ -37,7 +37,7 @@ label {
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 165px);
   font-weight: 500;
   font-size: medium;
 }
