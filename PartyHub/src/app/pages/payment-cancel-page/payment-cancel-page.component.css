@@ -1,0 +1,13 @@
+p {
+  text-align: center;
+}
+
+img {
+  height: 7rem;
+  width: auto;
+}
+
+.contact {
+  position: fixed;
+  bottom: 8rem;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PATHS } from 'src/app/constants/paths';
 import { stripeConfig } from 'src/app/environments/environment.dev';
 import { PaymentService } from 'src/app/services/payment.service';
 
@@ -17,7 +19,7 @@ export class PaymentPageComponent implements OnInit {
   cardCvc: any;
   priceToPay!: number;
 
-  constructor(private paymentService: PaymentService) {}
+  constructor(private paymentService: PaymentService, private router: Router) {}
 
   ngOnInit() {
     this.priceToPay = this.paymentService.getPaymentPrice();
@@ -51,16 +53,27 @@ export class PaymentPageComponent implements OnInit {
     this.cardCvc.mount('#card-cvc-element');
   }
 
-  async onSubmit() {
-    const { token, error } = await this.stripe.createToken(this.cardNumber);
+  navigateToPaymentCancel(): void {
+    this.router.navigate([PATHS.PAYMENTCANCEL]);
+  }
+  navigateToPaymentSucces(): void {
+    this.router.navigate([PATHS.PAYMENTSUCCESS]);
+  }
 
-    if (error) {
-      console.error(error.message);
-    } else {
-      const payment = this.paymentService.getPaymentDetails();
-      payment!.token = token.id;
-      this.paymentService.savePaymentDetails(payment!);
-      this.paymentService.pay().subscribe();
+  async onSubmit() {
+    try {
+      const { token, error } = await this.stripe.createToken(this.cardNumber);
+
+      if (error) {
+        console.error(error.message);
+        this.navigateToPaymentCancel();
+      } else {
+        console.log(token);
+        this.navigateToPaymentSucces();
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+      this.navigateToPaymentCancel();
     }
   }
 }

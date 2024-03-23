@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { PATHS } from 'src/app/constants/paths';
 import { Router } from '@angular/router';
@@ -28,6 +28,14 @@ export class NavbarComponent {
     this.authentication.isScanner.subscribe(
       (value) => (this.isScanner = value)
     );
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    const clickedElement = event.target as HTMLElement;
+    if (!clickedElement.closest('.navbar') && this.navbarExtend) {
+      this.closeNavbar();
+    }
   }
 
   logout(): void {
