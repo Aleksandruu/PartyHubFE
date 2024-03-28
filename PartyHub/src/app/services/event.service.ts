@@ -7,6 +7,7 @@ import { EventPhoto } from '../types/eventPhoto.type';
 import { EventItem } from '../types/eventItem.type';
 import { ApiResponse } from '../types/apiResponse.type';
 import { EventStatistics } from '../types/eventStatistics.type';
+import { EventPaymentDetails } from '../types/eventPaymentDetails.type';
 
 @Injectable({
   providedIn: 'root',
@@ -73,6 +74,12 @@ export class EventService {
   getEventStatistics(eventId: string) {
     return this.http.get<EventStatistics>(
       enviroment.apiURL + '/admin/event-statistics/' + eventId
+    );
+  }
+
+  getEventPaymentDetails(eventId: string) {
+    return this.http.get<EventPaymentDetails>(
+      enviroment.apiURL + '/public/event-payment-details/' + eventId
     );
   }
 }

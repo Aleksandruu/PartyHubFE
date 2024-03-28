@@ -38,12 +38,16 @@
   </form>
   <div class="discount-container" *ngIf="loggedIn">
     <div class="discount-info">
-      <app-discount-bar [discount]="30"></app-discount-bar>
+      <app-discount-bar
+        [discount]="event.discountForNextTicket"
+      ></app-discount-bar>
       <mat-icon class="info-icon" (click)="navigateToPromoCodeDetails()"
         >info</mat-icon
       >
     </div>
-    <p class="discount-text">Discount for the next ticket: 30%</p>
+    <p class="discount-text">
+      Discount for the next ticket: {{ event.discountForNextTicket }}%
+    </p>
   </div>
   <div class="data-list">
     <div class="data-list-row">
@@ -57,7 +61,11 @@
     <div class="data-list-row total">
       <p>Total:</p>
       <p>
-        {{ event.price * ticketForm.get("numberOfTickets")!.value - discount }}
+        {{
+          event.price * ticketForm.get("numberOfTickets")!.value -
+            discount -
+            (event.discountForNextTicket * event.price) / 100
+        }}
         lei
       </p>
     </div>

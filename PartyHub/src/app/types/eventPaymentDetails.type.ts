@@ -3,6 +3,6 @@ export interface EventPaymentDetails {
   price: number;
   discount: number;
   ticketsLeft: number;
-  tickets: number;
+  ticketsNumber: number;
   discountForNextTicket: number;
 }

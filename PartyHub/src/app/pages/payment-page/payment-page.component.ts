@@ -57,19 +57,22 @@ export class PaymentPageComponent implements OnInit {
     this.router.navigate([PATHS.PAYMENTCANCEL]);
   }
   navigateToPaymentSucces(): void {
-    this.router.navigate([PATHS.PAYMENTSUCCESS]);
+    // this.router.navigate([PATHS.PAYMENTSUCCESS]);
   }
 
   async onSubmit() {
     try {
       const { token, error } = await this.stripe.createToken(this.cardNumber);
-
       if (error) {
         console.error(error.message);
         this.navigateToPaymentCancel();
       } else {
         console.log(token);
         this.navigateToPaymentSucces();
+        const payment = this.paymentService.getPaymentDetails();
+        payment!.token = token.id;
+        this.paymentService.savePaymentDetails(payment!);
+        this.paymentService.pay().subscribe();
       }
     } catch (error) {
       console.error('An error occurred:', error);

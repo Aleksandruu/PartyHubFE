@@ -56,6 +56,8 @@ export class ScanTicketPageComponent {
                 const date = this.convertAndCheckTimestamp(err.error.message);
                 if (date != null) {
                   this.validationDate = date;
+                } else {
+                  this.notTicket = true;
                 }
               }
             );

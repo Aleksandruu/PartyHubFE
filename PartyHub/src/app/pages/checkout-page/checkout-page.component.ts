@@ -14,6 +14,7 @@ import { ApiResponse } from 'src/app/types/apiResponse.type';
 import { EventDetails } from 'src/app/types/event.type';
 import { PaymentDetails } from 'src/app/types/paymentDetails.type';
 import { MatIconModule } from '@angular/material/icon';
+import { EventPaymentDetails } from 'src/app/types/eventPaymentDetails.type';
 
 @Component({
   selector: 'app-checkout-page',
@@ -21,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './checkout-page.component.css',
 })
 export class CheckoutPageComponent {
-  event!: EventDetails;
+  event!: EventPaymentDetails;
   id!: string;
   notFound = false;
   discount = 0;
@@ -54,7 +55,7 @@ export class CheckoutPageComponent {
       this.id = params['id'];
     });
 
-    this.eventService.getEvent(this.id).subscribe(
+    this.eventService.getEventPaymentDetails(this.id).subscribe(
       (event) => {
         this.event = event;
         if (event.ticketsLeft <= (event.ticketsNumber * 20) / 100) {
@@ -115,7 +116,8 @@ export class CheckoutPageComponent {
     this.paymentService.savePaymentDetails(payment);
     this.paymentService.savePaymentPrice(
       this.event.price * this.ticketForm.get('numberOfTickets')!.value -
-        this.discount
+        this.discount -
+        (this.event.price * this.event.discountForNextTicket) / 100
     );
     this.router.navigate([PATHS.PAYMENT]);
   }
